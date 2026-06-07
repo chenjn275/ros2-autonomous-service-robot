@@ -1,0 +1,50 @@
+mission:
+  id: home_sorting_demo
+  loop: false
+  stop_on_task_failure: false
+
+waypoints:
+  - name: start_area
+    frame_id: map
+    x: 0.0
+    y: 0.0
+    yaw: 0.0
+    skip_navigation: true
+    tasks:
+      - type: wait
+        name: system_ready_wait
+        seconds: 0.5
+
+  - name: shelf_scan
+    frame_id: map
+    x: 0.8
+    y: 0.0
+    yaw: 0.0
+    tasks:
+      - type: observe_yolo
+        name: observe_target_object
+      - type: observe_qr
+        name: read_shelf_qr
+
+  - name: sorting_bin
+    frame_id: map
+    x: 0.8
+    y: 0.8
+    yaw: 1.5708
+    tasks:
+      - type: classify
+        name: classify_detected_object
+        fallback_category: unknown
+      - type: place_mock
+        name: mock_place_to_bin
+        bin: bin_a
+
+  - name: return_home
+    frame_id: map
+    x: 0.0
+    y: 0.0
+    yaw: 3.1416
+    tasks:
+      - type: wait
+        name: finish_wait
+        seconds: 0.5

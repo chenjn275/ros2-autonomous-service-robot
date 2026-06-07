@@ -1,0 +1,19 @@
+camera:
+  model: d425i
+  ros_package: realsense2_camera
+  default_name: d425i
+  color_topic: /d425i/color/image_raw
+  depth_topic: /d425i/aligned_depth_to_color/image_raw
+  imu_topics:
+    gyro: /d425i/gyro/sample
+    accel: /d425i/accel/sample
+  recommended_profiles:
+    color: 640x480x30
+    depth: 640x480x30
+  launch:
+    enable_depth: true
+    enable_color: true
+    enable_gyro: true
+    enable_accel: true
+    align_depth: true
+    unite_imu_method: 2

@@ -1,0 +1,7 @@
+yolo_detector:
+  ros__parameters:
+    image_topic: /camera/image_raw
+    detections_topic: /perception/yolo/detections
+    annotated_topic: /perception/yolo/annotated
+    model_path: ""
+    confidence: 0.25

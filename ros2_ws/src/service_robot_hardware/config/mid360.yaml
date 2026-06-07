@@ -1,0 +1,15 @@
+lidar:
+  model: livox_mid360
+  ros_package: livox_ros_driver2
+  pointcloud_topic: /livox/lidar
+  imu_topic: /livox/imu
+  frame_id: mid360_link
+  driver_launch: launch_ROS2/msg_MID360_launch.py
+network:
+  host_ip: 192.168.1.50
+  lidar_ip: 192.168.1.2
+  command_port: 56100
+  data_port: 56300
+notes:
+  - Replace host_ip and lidar_ip with the NUC and MID360 network settings used on the robot.
+  - For Point-LIO/Fast-LIO, keep pointcloud and IMU timestamps synchronized.

@@ -1,0 +1,22 @@
+frames:
+  base_frame: base_link
+  camera_frame: d425i_link
+  camera_optical_frame: d425i_color_optical_frame
+  lidar_frame: mid360_link
+  arm_base_frame: piper_base_link
+mounts:
+  d425i:
+    parent: base_link
+    xyz: [0.27, 0.0, 0.24]
+    rpy: [0.0, 0.0, 0.0]
+  mid360:
+    parent: base_link
+    xyz: [0.08, 0.0, 0.32]
+    rpy: [0.0, 0.0, 0.0]
+  piper_standard:
+    parent: base_link
+    xyz: [0.02, 0.0, 0.18]
+    rpy: [0.0, 0.0, 0.0]
+notes:
+  - These are repository defaults for simulation and launch wiring.
+  - Replace with measured calibration before real navigation, mapping, or manipulation.

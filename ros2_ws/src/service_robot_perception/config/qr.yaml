@@ -1,0 +1,5 @@
+qr_detector:
+  ros__parameters:
+    image_topic: /camera/image_raw
+    result_topic: /perception/qr/result
+    annotated_topic: /perception/qr/annotated

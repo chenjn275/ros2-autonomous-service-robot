@@ -1,0 +1,20 @@
+arm:
+  model: piper_standard
+  ros_package_candidates:
+    - piper
+    - piper_description
+    - piper_with_gripper_moveit
+    - piper_no_gripper_moveit
+  can_interface: can1
+  base_frame: piper_base_link
+  mount_parent_frame: base_link
+  command_topics:
+    joint_trajectory: /piper/joint_trajectory_controller/joint_trajectory
+  state_topics:
+    joint_states: /joint_states
+  moveit:
+    with_gripper_package: piper_with_gripper_moveit
+    no_gripper_package: piper_no_gripper_moveit
+notes:
+  - Use the ROS2-compatible Piper driver branch and verify CAN before auto enabling the arm.
+  - Keep auto_enable false until emergency stop and joint limits are confirmed.

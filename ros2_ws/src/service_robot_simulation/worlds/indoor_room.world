@@ -1,0 +1,71 @@
+<?xml version="1.0"?>
+<sdf version="1.6">
+  <world name="indoor_room">
+    <include>
+      <uri>model://sun</uri>
+    </include>
+    <include>
+      <uri>model://ground_plane</uri>
+    </include>
+    <model name="north_wall">
+      <static>true</static>
+      <pose>0 3 0.5 0 0 0</pose>
+      <link name="wall">
+        <collision name="collision">
+          <geometry>
+            <box>
+              <size>6 0.1 1</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>6 0.1 1</size>
+            </box>
+          </geometry>
+        </visual>
+      </link>
+    </model>
+    <model name="east_wall">
+      <static>true</static>
+      <pose>3 0 0.5 0 0 0</pose>
+      <link name="wall">
+        <collision name="collision">
+          <geometry>
+            <box>
+              <size>0.1 6 1</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>0.1 6 1</size>
+            </box>
+          </geometry>
+        </visual>
+      </link>
+    </model>
+    <model name="service_counter">
+      <static>true</static>
+      <pose>1.4 -1.0 0.25 0 0 0</pose>
+      <link name="counter">
+        <collision name="collision">
+          <geometry>
+            <box>
+              <size>0.9 0.45 0.5</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>0.9 0.45 0.5</size>
+            </box>
+          </geometry>
+        </visual>
+      </link>
+    </model>
+  </world>
+</sdf>

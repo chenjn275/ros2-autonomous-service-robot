@@ -1,0 +1,20 @@
+computer:
+  model: nuc_ultra
+  role: onboard_compute
+  os: ubuntu_22_04
+  ros_distro: humble
+network:
+  robot_lan_interface: eno1
+  livox_static_ip: 192.168.1.50/24
+  ssh_user: chen
+recommended_services:
+  - chrony
+  - NetworkManager
+  - docker
+checks:
+  - nproc
+  - free -h
+  - ip addr
+  - lsusb
+  - ip -details link show can0
+  - ip -details link show can1
