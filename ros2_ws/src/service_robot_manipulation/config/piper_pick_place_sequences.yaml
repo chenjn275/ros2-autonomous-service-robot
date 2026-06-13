@@ -1,0 +1,146 @@
+metadata:
+  calibrated: false
+  note: >
+    Record real Piper poses on the robot before setting calibrated to true.
+    The sequence executor refuses to run when require_calibrated is true and
+    this flag is false.
+
+settings:
+  arm_joints: [joint1, joint2, joint3, joint4, joint5, joint6]
+  gripper_joint: joint7
+  gripper_val_mutiple: 2.0
+  default_speed_percent: 25.0
+  default_duration_sec: 2.0
+  default_gripper_effort: 1.5
+
+poses:
+  home_safe:
+    placeholder: true
+    positions:
+      joint1: 0.0
+      joint2: 0.0
+      joint3: 0.0
+      joint4: 0.0
+      joint5: 0.0
+      joint6: 0.0
+      joint7: 0.02
+  d_pre_grasp:
+    placeholder: true
+    positions: {joint1: 0.0, joint2: 0.0, joint3: 0.0, joint4: 0.0, joint5: 0.0, joint6: 0.0, joint7: 0.03}
+  d_grasp:
+    placeholder: true
+    positions: {joint1: 0.0, joint2: 0.0, joint3: 0.0, joint4: 0.0, joint5: 0.0, joint6: 0.0, joint7: 0.03}
+  d_lift:
+    placeholder: true
+    positions: {joint1: 0.0, joint2: 0.0, joint3: 0.0, joint4: 0.0, joint5: 0.0, joint6: 0.0, joint7: 0.01}
+  e_pre_place_001:
+    placeholder: true
+    positions: {joint1: 0.0, joint2: 0.0, joint3: 0.0, joint4: 0.0, joint5: 0.0, joint6: 0.0, joint7: 0.01}
+  e_place_001:
+    placeholder: true
+    positions: {joint1: 0.0, joint2: 0.0, joint3: 0.0, joint4: 0.0, joint5: 0.0, joint6: 0.0, joint7: 0.01}
+  e_pre_place_002:
+    placeholder: true
+    positions: {joint1: 0.0, joint2: 0.0, joint3: 0.0, joint4: 0.0, joint5: 0.0, joint6: 0.0, joint7: 0.01}
+  e_place_002:
+    placeholder: true
+    positions: {joint1: 0.0, joint2: 0.0, joint3: 0.0, joint4: 0.0, joint5: 0.0, joint6: 0.0, joint7: 0.01}
+  e_pre_place_003:
+    placeholder: true
+    positions: {joint1: 0.0, joint2: 0.0, joint3: 0.0, joint4: 0.0, joint5: 0.0, joint6: 0.0, joint7: 0.01}
+  e_place_003:
+    placeholder: true
+    positions: {joint1: 0.0, joint2: 0.0, joint3: 0.0, joint4: 0.0, joint5: 0.0, joint6: 0.0, joint7: 0.01}
+  e_pre_place_004:
+    placeholder: true
+    positions: {joint1: 0.0, joint2: 0.0, joint3: 0.0, joint4: 0.0, joint5: 0.0, joint6: 0.0, joint7: 0.01}
+  e_place_004:
+    placeholder: true
+    positions: {joint1: 0.0, joint2: 0.0, joint3: 0.0, joint4: 0.0, joint5: 0.0, joint6: 0.0, joint7: 0.01}
+
+sequences:
+  pick:
+    - pose: home_safe
+      duration_sec: 2.0
+    - pose: d_pre_grasp
+      duration_sec: 3.0
+      speed_percent: 20.0
+    - gripper_width_m: 0.06
+      duration_sec: 1.0
+      wait_until_reached: false
+    - pose: d_grasp
+      duration_sec: 2.0
+      speed_percent: 15.0
+    - gripper_width_m: 0.015
+      duration_sec: 1.0
+      settle_sec: 0.5
+      wait_until_reached: false
+    - pose: d_lift
+      duration_sec: 2.0
+      speed_percent: 15.0
+    - pose: home_safe
+      duration_sec: 2.0
+
+  place_001:
+    - pose: e_pre_place_001
+      duration_sec: 3.0
+      speed_percent: 20.0
+    - pose: e_place_001
+      duration_sec: 2.0
+      speed_percent: 15.0
+    - gripper_width_m: 0.06
+      duration_sec: 1.0
+      settle_sec: 0.5
+      wait_until_reached: false
+    - pose: e_pre_place_001
+      duration_sec: 2.0
+    - pose: home_safe
+      duration_sec: 2.0
+
+  place_002:
+    - pose: e_pre_place_002
+      duration_sec: 3.0
+      speed_percent: 20.0
+    - pose: e_place_002
+      duration_sec: 2.0
+      speed_percent: 15.0
+    - gripper_width_m: 0.06
+      duration_sec: 1.0
+      settle_sec: 0.5
+      wait_until_reached: false
+    - pose: e_pre_place_002
+      duration_sec: 2.0
+    - pose: home_safe
+      duration_sec: 2.0
+
+  place_003:
+    - pose: e_pre_place_003
+      duration_sec: 3.0
+      speed_percent: 20.0
+    - pose: e_place_003
+      duration_sec: 2.0
+      speed_percent: 15.0
+    - gripper_width_m: 0.06
+      duration_sec: 1.0
+      settle_sec: 0.5
+      wait_until_reached: false
+    - pose: e_pre_place_003
+      duration_sec: 2.0
+    - pose: home_safe
+      duration_sec: 2.0
+
+  place_004:
+    - pose: e_pre_place_004
+      duration_sec: 3.0
+      speed_percent: 20.0
+    - pose: e_place_004
+      duration_sec: 2.0
+      speed_percent: 15.0
+    - gripper_width_m: 0.06
+      duration_sec: 1.0
+      settle_sec: 0.5
+      wait_until_reached: false
+    - pose: e_pre_place_004
+      duration_sec: 2.0
+    - pose: home_safe
+      duration_sec: 2.0

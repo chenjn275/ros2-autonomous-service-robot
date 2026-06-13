@@ -19,4 +19,11 @@ setup(
     maintainer_email="user@example.com",
     description="MoveIt2 integration entry points for the indoor service robot demo.",
     license="MIT",
+    entry_points={
+        "console_scripts": [
+            "piper_pose_recorder = service_robot_manipulation.piper_pose_recorder:main",
+            "piper_sequence_executor = service_robot_manipulation.piper_sequence_executor:main",
+            "piper_sequence_validator = service_robot_manipulation.piper_sequence_validator:main",
+        ],
+    },
 )

@@ -1,0 +1,47 @@
+workspace: /home/chen/ros2-autonomous-service-robot/ros2_ws
+ros_domain_id: 26
+ros_localhost_only: 1
+
+build:
+  packages_skip:
+    - piper_gazebo
+    - piper_mujoco
+    - piper_with_gripper_moveit
+    - piper_no_gripper_moveit
+
+competition:
+  mission_config: /home/chen/ros2-autonomous-service-robot/ros2_ws/src/Venom_VNV/venom_mission_commander/config/craic2026_home_sorting_real.yaml
+  map: /home/chen/ros2-autonomous-service-robot/ros2_ws/src/service_robot_navigation/maps/demo_map.yaml
+  nav2_params: /home/chen/ros2-autonomous-service-robot/ros2_ws/src/service_robot_navigation/config/nav2_params.yaml
+  marker_config: /home/chen/ros2-autonomous-service-robot/ros2_ws/src/service_robot_perception/config/custom_markers.yaml
+  piper_sequence_config: /home/chen/ros2-autonomous-service-robot/ros2_ws/src/service_robot_manipulation/config/piper_pick_place_sequences.yaml
+  yolo_model_path: /home/chen/model_backup/craic_items_baseline_best.pt
+
+hardware:
+  camera_name: d425i
+  camera_serial_no: ""
+  image_topic: /d425i/color/image_raw
+  lidar_pointcloud_topic: /livox/lidar
+  lidar_imu_topic: /livox/imu
+  scan_topic: /scan
+  base_can_port: can0
+  piper_can_port: can1
+  piper_auto_enable: true
+  start_lidar: true
+
+perception:
+  yolo_confidence: 0.45
+  marker_match_threshold: 0.65
+
+runtime:
+  use_sim_time: false
+  require_piper_calibrated: true
+  piper_dry_run: false
+  piper_start_driver: true
+  mission_use_nav: true
+  start_hardware: true
+  start_navigation: true
+  start_perception: true
+  start_manipulation: true
+  start_mission: true
+  navigator_ready_timeout_sec: 60.0

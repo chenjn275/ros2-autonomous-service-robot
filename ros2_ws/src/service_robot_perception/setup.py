@@ -21,6 +21,9 @@ setup(
     license="MIT",
     entry_points={
         "console_scripts": [
+            "custom_marker_detector = service_robot_perception.custom_marker_detector:main",
+            "craic_preflight_check = service_robot_perception.craic_preflight_check:main",
+            "image_snapshot = service_robot_perception.image_snapshot:main",
             "qr_detector = service_robot_perception.qr_detector:main",
             "yolo_detector = service_robot_perception.yolo_detector:main",
         ],
